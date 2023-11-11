@@ -2,9 +2,9 @@ package br.com.solidgomes.app.service;
 
 import java.math.BigDecimal;
 
-import br.com.solidgomes.app.model.Calculadora;
+import br.com.solidgomes.app.dto.CalculadoraDTO;
 
 public interface Operacao {
 
-	BigDecimal realizarCalculo(Calculadora cal);
+	BigDecimal realizarCalculo(CalculadoraDTO cal);
 }

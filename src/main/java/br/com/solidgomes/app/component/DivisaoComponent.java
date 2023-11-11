@@ -1,11 +1,11 @@
-package br.com.solidgomes.app.component;
+  package br.com.solidgomes.app.component;
 
 import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import br.com.solidgomes.app.model.Calculadora;
+import br.com.solidgomes.app.dto.CalculadoraDTO;
 import br.com.solidgomes.app.service.Operacao;
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,8 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 public class DivisaoComponent implements Operacao {
 
 	@Override
-	public BigDecimal realizarCalculo(Calculadora cal) {
+	public BigDecimal realizarCalculo(CalculadoraDTO cal) {
 		log.info("## Calculo de divisão ##");
+		cal.setTipoCalculo("DIVISAO");
 		
 		try {
 			if (cal.getY().compareTo(BigDecimal.ZERO) == 0) {
