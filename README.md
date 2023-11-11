@@ -1,5 +1,5 @@
 # Projeto app-solid
-Este projeto é referente aos meus estudos sobre SOLID. Aqui vou implementar e explicar cada principio dos 5 que existem.
+Este projeto é referente aos meus estudos sobre SOLID e o que já venho utilizando no meu dia a dia. Aqui vou implementar e explicar cada principio dos 5 que existem.
 O projeto é feito com SPRING BOOT na versão **3.1.5**, hibernate, postgreSQL e boas práticas de programação com separação de camadas, pacotes e programação orientada a interfaces.
 Utilizei o Java 17 para o projeto.
 
