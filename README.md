@@ -3,7 +3,7 @@ Este projeto é referente aos meus estudos sobre SOLID.
 
 ## SRP
 A classe **OperacaoMatematicaServiceImpl** é responsável por chamar os calculos através da abstração **Operacao**, desta forma desacoplamos a classe e blindamos a mesma 
-para não permitir alterações mas sim, estar aberta a extenções, respeitando o principio OCP. Mas, podemos ver no trecho abaixo, que ela está quebrando o principio **SRP**:
+para não permitir alterações mas sim, estar aberta a extenções, respeitando o principio OCP. Mas, podemos ver no trecho abaixo, que ela está violando o principio **SRP**:
 
 ```
 @Override
@@ -28,7 +28,7 @@ para não permitir alterações mas sim, estar aberta a extenções, respeitando
 	}
 ```
 
-No commit [SRP](https://github.com/guigomes91/app-solid/commit/b915013f2ce0c2241a0f3c00b525afbd60cdbb98), foi inserido salvar os resultados dos cálculos no banco de dados dentro da classe **OperacaoMatematicaServiceImpl**, desta forma, precisamos
+No commit [SRP Violado](https://github.com/guigomes91/app-solid/commit/b915013f2ce0c2241a0f3c00b525afbd60cdbb98), foi inserido salvar os resultados dos cálculos no banco de dados dentro da classe **OperacaoMatematicaServiceImpl**, desta forma, precisamos
 separar as responsábilidades desta classe, ela não precisa conhecer a regra e lógica para inserir os cálculos no banco de dados, já que ela é uma classe de fachada apenas que chama a execução e retorna os valores.
 
 ## OCP
