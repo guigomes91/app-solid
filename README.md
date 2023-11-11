@@ -1,5 +1,7 @@
-# app-solid
-Este projeto é referente aos meus estudos sobre SOLID.
+# Projeto app-solid
+Este projeto é referente aos meus estudos sobre SOLID. Aqui vou implementar e explicar cada principio dos 5 que existem.
+O projeto é feito com SPRING BOOT na versão **3.1.5**, hibernate, postgreSQL e boas práticas de programação com separação de camadas, pacotes e programação orientada a interfaces.
+Utilizei o Java 17 para o projeto.
 
 ## SRP
 A classe **OperacaoMatematicaServiceImpl** é responsável por chamar os calculos através da abstração **Operacao**, desta forma desacoplamos a classe e blindamos a mesma 
