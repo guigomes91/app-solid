@@ -34,7 +34,7 @@ No commit [SRP Violado](https://github.com/guigomes91/app-solid/commit/b915013f2
 separar as responsábilidades desta classe, ela não precisa conhecer a regra e lógica para inserir os cálculos no banco de dados, já que ela é uma classe de fachada apenas que chama a execução e retorna os valores.
 
 ## OCP
-No primeiro commit podemos ver o conceito do OCP (Open/Closed Principle), onde crio uma interface Operacao e nela tem o método realizarCalculo.
+No primeiro commit [OCP Impl](https://github.com/guigomes91/app-solid/commit/865ea4fc5244968d8bec768f9139abf88d415339#diff-bb2848a183e7299ddae9d28f9c750c17468172083578132930a1f9f52a6a350f) podemos ver o conceito do OCP (Open/Closed Principle), onde crio uma interface Operacao e nela tem o método realizarCalculo.
 Foi criado dois componentes que implementam a interface, um componente com @Primary e o outro com @Qualifies, assim o Spring sabe se virar com a injeção da 
 abstração (Ioc).
 Desta forma, eu pude aplicar o conceito de classes que estão fechadas para modificação porém abertas para extensão. Também pode-se perceber que um strategy é aplicado
