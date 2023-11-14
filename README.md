@@ -37,7 +37,7 @@ a entidade com o resultado dos cálculos, podemos ver a redução do código e a
 
 ## OCP
 No primeiro commit [OCP Impl](https://github.com/guigomes91/app-solid/commit/865ea4fc5244968d8bec768f9139abf88d415339#diff-bb2848a183e7299ddae9d28f9c750c17468172083578132930a1f9f52a6a350f) podemos ver o conceito do OCP (Open/Closed Principle), onde crio uma interface Operacao e nela tem o método realizarCalculo.
-Foi criado dois componentes que implementam a interface, um componente com @Primary e o outro com @Qualifies, assim o Spring sabe se virar com a injeção da 
+Foi criado dois componentes que implementam a interface, um componente com @Primary e o outro com **@Qualifier("divisaoComponent")**, assim o Spring sabe se virar com a injeção da 
 abstração (Ioc).
 Desta forma, eu pude aplicar o conceito de classes que estão fechadas para modificação porém abertas para extensão. Também pode-se perceber que um strategy é aplicado
 como design pattern. Agora se eu quero calcular uma multiplicação, basta eu criar uma nova classe e implementar a interface.
