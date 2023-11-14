@@ -30,8 +30,10 @@ para não permitir alterações mas sim, estar aberta a extenções, respeitando
 	}
 ```
 
-No commit [SRP Violado](https://github.com/guigomes91/app-solid/commit/b915013f2ce0c2241a0f3c00b525afbd60cdbb98), foi inserido salvar os resultados dos cálculos no banco de dados dentro da classe **OperacaoMatematicaServiceImpl**, desta forma, precisamos
-separar as responsábilidades desta classe, ela não precisa conhecer a regra e lógica para inserir os cálculos no banco de dados, já que ela é uma classe de fachada apenas que chama a execução e retorna os valores.
+No commit [SRP Violado](https://github.com/guigomes91/app-solid/commit/b915013f2ce0c2241a0f3c00b525afbd60cdbb98), foi salvo os resultados dos cálculos no banco de dados dentro da classe **OperacaoMatematicaServiceImpl**, desta forma, precisamos
+separar as responsábilidades desta classe, ela não precisa conhecer a regra e lógica para inserir os cálculos no banco de dados, já que ela é uma classe service de fachada apenas que chama a execução e retorna os valores.
+Desta forma, no commit [Refatoração SRP](https://github.com/guigomes91/app-solid/commit/cb8b1b5686479bb831b306cb47e290e6b8a54f60) foi criado um repository para a entidade **CalculadoraEntity**, injetado o repositório no service e realizado a chamada para salvar 
+a entidade com o resultado dos cálculos, podemos ver a redução do código e a responsabilidade sendo separada.
 
 ## OCP
 No primeiro commit [OCP Impl](https://github.com/guigomes91/app-solid/commit/865ea4fc5244968d8bec768f9139abf88d415339#diff-bb2848a183e7299ddae9d28f9c750c17468172083578132930a1f9f52a6a350f) podemos ver o conceito do OCP (Open/Closed Principle), onde crio uma interface Operacao e nela tem o método realizarCalculo.
