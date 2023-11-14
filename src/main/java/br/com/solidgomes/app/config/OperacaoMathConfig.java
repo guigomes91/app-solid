@@ -15,7 +15,7 @@ public class OperacaoMathConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		/*
-		 * Aplicando os conceitos de inversão de dependência e open closed do SOLID 
+		 * Aplicando os conceitos de inversão de dependência e open closed do SOLID
 		 * utilizando Spring (@Primary e @Qualifier)
 		 */
 		runOperacao.executarOperacaoMatematica();

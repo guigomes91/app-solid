@@ -2,13 +2,13 @@ package br.com.solidgomes.app.service.impl;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import br.com.solidgomes.app.dto.CalculadoraDTO;
+import br.com.solidgomes.app.model.CalculadoraEntity;
+import br.com.solidgomes.app.repository.CalculadoraRepository;
 import br.com.solidgomes.app.service.Operacao;
 import br.com.solidgomes.app.service.OperacaoMatematicaService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +21,7 @@ public class OperacaoMatematicaServiceImpl implements OperacaoMatematicaService 
 	private List<Operacao> operacoes;
 	
 	@Autowired
-	JdbcTemplate jdbcTemplate;
+	private CalculadoraRepository repository;
 	
 	@Override
 	public void executarOperacaoMatematica() {
@@ -31,16 +31,13 @@ public class OperacaoMatematicaServiceImpl implements OperacaoMatematicaService 
 			BigDecimal retorno = operacao.realizarCalculo(calc);
 			log.info("Valor calculado: {}", retorno);
 			
-			StringBuilder sql = new StringBuilder();
-			sql.append("insert into calculadora (id, tipo_calculo, valor_x, valor_y, resultado) ");
-			sql.append("values ('");
-			sql.append(UUID.randomUUID()).append("', '");
-			sql.append(calc.getTipoCalculo()).append("',");
-			sql.append(calc.getX()).append(",");
-			sql.append(calc.getY()).append(",");
-			sql.append(retorno).append(")");
+			CalculadoraEntity calcEntity = new CalculadoraEntity();
+			calcEntity.setResultado(retorno);
+			calcEntity.setTipoCalculo(calc.getTipoCalculo());
+			calcEntity.setX(calc.getX());
+			calcEntity.setY(calc.getY());
 			
-			jdbcTemplate.execute(sql.toString());
+			repository.save(calcEntity);
 		});
 	}
 }
