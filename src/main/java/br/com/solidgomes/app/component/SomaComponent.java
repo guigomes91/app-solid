@@ -24,4 +24,9 @@ public class SomaComponent implements OperacaoMatematicaComum {
 	public String toString() {
 		return "Operação de soma";
 	}
+
+	@Override
+	public void calcularTaboada(int numero) throws Exception {
+		throw new Exception("Method not allow");
+	}
 }

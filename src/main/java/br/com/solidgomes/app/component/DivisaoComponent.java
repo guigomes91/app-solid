@@ -37,4 +37,9 @@ public class DivisaoComponent implements OperacaoMatematicaComum {
 		return "Operação de divisão";
 	}
 
+	@Override
+	public void calcularTaboada(int numero) throws Exception {
+		throw new Exception("Method not allow");
+	}
+
 }

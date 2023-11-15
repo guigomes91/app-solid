@@ -1,4 +1,4 @@
-package br.com.solidgomes.app.service.impl;
+package br.com.solidgomes.app.service;
 
 import java.math.BigDecimal;
 
