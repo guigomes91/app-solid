@@ -75,4 +75,38 @@ public class OperacaoMatematicaGeometrica extends OperacaoGeometrica {
 
 ![I](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/I_BG.png)SP
 
+Interfaces devem ser enxutas, mais especificas. Precisa ter coerência ao criar a interface, fazendo sentido para a implementação, não gerando classes "gordas" e obrigando a implementar métodos que não são da classe e necessários para ela. 
+Interfaces com muitos comportamentos são complexas e difíceis de evoluir.
+
+No commit [Violando ISP](https://github.com/guigomes91/app-solid/commit/5f1e64e735159b599adda48a1b93f975f4cba302) podemos verificar a violação da premissa ISP. Adicionei na interface **OperacaoMatematicaComum**
+a assinatura **calcularTaboada**, desta forma obrigando os componentes **DivisaoComponent** e **SomaComponent** a implementar o método, sendo que esses componentes só realizam operações básicas da matemática e a implementação lança uma execeção não esperada.
+
+```
+@Primary
+@Component
+public class SomaComponent implements OperacaoMatematicaComum {
+
+	@Override
+	public BigDecimal realizarCalculo(CalculadoraDTO cal) {
+		cal.setTipoCalculo("SOMA");
+		BigDecimal soma = cal.getX().add(cal.getY());
+		
+		return new BigDecimal(soma.doubleValue());
+	}
+
+	@Override
+	public String toString() {
+		return "Operação de soma";
+	}
+
+	@Override
+	public void calcularTaboada(int numero) throws Exception {
+		throw new Exception("Method not allow");
+	}
+}
+```
+Agora foi ajustado para fazer sentido as interface. No commit [Ajuste ISP](https://github.com/guigomes91/app-solid/commit/d88c3fdbc389bfc7e632aa83b8ec8889a796ce28), o método **calcularTaboada** foi definido na 
+interface **OperacaoMatematicaService**, visto que a classe **OperacaoMatematicaServiceImpl** é responsável por executar as operações matemáticas tanto básicas como geometricas. Fazendo mais sentido para aplicação.
+Mas agora começamos a ter um novo problema, essa classe tende a crescer se existerem novos tipos de cálculos matemáticos, então ela é forte candidata a ser refatorada novamente.
+
 ![D](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/D_BG.png)IP
