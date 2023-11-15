@@ -1,7 +1,15 @@
 # Projeto app-solid
-Este projeto é referente aos meus estudos sobre SOLID e o que já venho utilizando no meu dia a dia. Aqui vou implementar e explicar cada principio dos 5 que existem.
-O projeto é feito com SPRING BOOT na versão **3.1.5**, hibernate, postgreSQL e boas práticas de programação com separação de camadas, pacotes e programação orientada a interfaces.
-Utilizei o Java 17 para o projeto.
+Este projeto é referente aos meus estudos sobre os princípios do **SOLID** e o que já venho utilizando no meu dia a dia. 
+Aqui vou implementar e explicar cada princípio dos 5 que existem.
+
+Ferramentas e tecnologias utilizadas: 
+- Spring Boot na versão **3.1.5**
+- Hibernate
+- PostgreSQL
+- Programação orientada a objetos
+- Boas práticas de programação com separação de camadas, pacotes e programação orientada a interfaces.
+- Java 17
+- IDE STS
 
 ![S](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/S_BG.png)RP
 
