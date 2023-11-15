@@ -46,6 +46,11 @@ como design pattern. Agora se eu quero calcular uma multiplicação, basta eu cr
 
 ![L](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/L_BG.png)SP
 
+Para revisar a premissa do LSP, vou citá-la logo abaixo:
+
+>Se para cada objeto x1 do tipo S há um objeto x2 do tipo T de tal forma que, para todos os programas P definidos em termos de T,
+>o comportamento de P não muda quando x1 é substituído por x2 então S é um subtipo de T.
+
 Assumimos que a aplicação só realiza operação matemática simples como soma, subtração, divisão e multiplicação. No commit [Violação do LSP](https://github.com/guigomes91/app-solid/commit/ca09858bfcdd9577eeae97dd9e9ded220d835bd0) a classe **CalculadoraDTO** extende de 
 **OperacaoGeometrica**, com isso a classe base foi obrigada a implementar o método **calcularAreaDoQuadrado**, porém não é possível realizar essa nova operação, a aplicação retorna uma exceção não esperada, violando o principo da substituição de Liskov.
 Corrigimos a violação do LSP no commit [Ajuste LSP](https://github.com/guigomes91/app-solid/commit/6aca9ea441a608f8d90aece1b11dcd19a3b1504a), agora vejamos que extendemos para uma classe que é responsável por realizar cálculos mais complexos, onde podemos aumentar os métodos para outros tipos de cálculos, separando também a responsabilidades das classes.
