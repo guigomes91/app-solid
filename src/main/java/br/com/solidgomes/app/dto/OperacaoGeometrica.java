@@ -14,5 +14,9 @@ public abstract class OperacaoGeometrica {
 	private String tipoOperacao;
 	private BigDecimal resultado;
 	
-	public abstract void calcularAreaDoQuadrado(BigDecimal ladoA, BigDecimal ladoB) throws Exception;
+	public OperacaoGeometrica(String tipoOperacao) {
+		this.tipoOperacao = tipoOperacao;
+	}
+	
+	public abstract BigDecimal calcularAreaDoQuadrado(BigDecimal ladoA, BigDecimal ladoB) throws Exception;
 }

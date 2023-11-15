@@ -25,7 +25,7 @@ public class CalculadoraDTO extends OperacaoGeometrica {
 	}
 
 	@Override
-	public void calcularAreaDoQuadrado(BigDecimal ladoA, BigDecimal ladoB) throws Exception {
+	public BigDecimal calcularAreaDoQuadrado(BigDecimal ladoA, BigDecimal ladoB) throws Exception {
 		throw new Exception("Method not allow");
 	}
 }
