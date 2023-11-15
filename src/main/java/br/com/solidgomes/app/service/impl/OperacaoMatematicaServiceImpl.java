@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.solidgomes.app.dto.CalculadoraDTO;
 import br.com.solidgomes.app.model.CalculadoraEntity;
 import br.com.solidgomes.app.repository.CalculadoraRepository;
-import br.com.solidgomes.app.service.Operacao;
+import br.com.solidgomes.app.service.OperacaoMatematicaComum;
 import br.com.solidgomes.app.service.OperacaoMatematicaService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class OperacaoMatematicaServiceImpl implements OperacaoMatematicaService {
 
 	@Autowired
-	private List<Operacao> operacoes;
+	private List<OperacaoMatematicaComum> operacoes;
 	
 	@Autowired
 	private CalculadoraRepository repository;

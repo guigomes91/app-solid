@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import br.com.solidgomes.app.dto.CalculadoraDTO;
-import br.com.solidgomes.app.service.Operacao;
+import br.com.solidgomes.app.service.OperacaoMatematicaComum;
 import lombok.extern.slf4j.Slf4j;
 
 @Qualifier("divisaoComponent")
 @Component
 @Slf4j
-public class DivisaoComponent implements Operacao {
+public class DivisaoComponent implements OperacaoMatematicaComum {
 
 	@Override
 	public BigDecimal realizarCalculo(CalculadoraDTO cal) {
