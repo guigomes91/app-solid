@@ -3,7 +3,7 @@ Este projeto é referente aos meus estudos sobre SOLID e o que já venho utiliza
 O projeto é feito com SPRING BOOT na versão **3.1.5**, hibernate, postgreSQL e boas práticas de programação com separação de camadas, pacotes e programação orientada a interfaces.
 Utilizei o Java 17 para o projeto.
 
-![S](https://www.pngitem.com/pimgs/m/171-1710241_letra-s-png-letra-s-en-png-transparent.png)
+![S](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/S_BG.png)
 ## SRP
 A classe **OperacaoMatematicaServiceImpl** é responsável por chamar os calculos através da abstração **Operacao**, desta forma desacoplamos a classe e blindamos a mesma 
 para não permitir alterações mas sim, estar aberta a extenções, respeitando o principio OCP. Mas, podemos ver no trecho abaixo, que ela está violando o principio **SRP**:
