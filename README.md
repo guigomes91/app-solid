@@ -49,6 +49,6 @@ como design pattern. Agora se eu quero calcular uma multiplicação, basta eu cr
 Assumimos que a aplicação só realiza operação matemática simples como soma, subtração, divisão e multiplicação. No commit [Violação do LSP](https://github.com/guigomes91/app-solid/commit/ca09858bfcdd9577eeae97dd9e9ded220d835bd0) a classe **CalculadoraDTO** extende de 
 **OperacaoGeometrica**, com isso a classe base foi obrigada a implementar o método **calcularAreaDoQuadrado**, porém não é possível realizar essa nova operação, a aplicação retorna uma exceção não esperada, violando o principo da substituição de Liskov.
 
-![I](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/O_BG.png)SP
+![I](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/I_BG.png)SP
 
 ![D](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/O_BG.png)IP
