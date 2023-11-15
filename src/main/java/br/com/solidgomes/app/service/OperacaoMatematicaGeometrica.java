@@ -15,4 +15,9 @@ public class OperacaoMatematicaGeometrica extends OperacaoGeometrica {
 		return ladoA.multiply(ladoB);
 	}
 
+	@Override
+	public BigDecimal calcularAreaDoTriangulo(BigDecimal base, BigDecimal altura) throws Exception {
+		return base.multiply(altura).divide(BigDecimal.valueOf(2));
+	}
+
 }

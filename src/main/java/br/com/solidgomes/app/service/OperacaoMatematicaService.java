@@ -4,4 +4,5 @@ public interface OperacaoMatematicaService {
 
 	void executarOperacaoMatematica();
 	void logarOperacoes();
+	void calcularTaboada(int numero);
 }

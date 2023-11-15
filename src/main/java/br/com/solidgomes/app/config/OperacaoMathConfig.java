@@ -20,6 +20,7 @@ public class OperacaoMathConfig implements CommandLineRunner {
 		 */
 		runOperacao.executarOperacaoMatematica();
 		runOperacao.logarOperacoes();
+		runOperacao.calcularTaboada(2);
 	}
 
 }

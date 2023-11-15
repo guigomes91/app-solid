@@ -19,4 +19,5 @@ public abstract class OperacaoGeometrica {
 	}
 	
 	public abstract BigDecimal calcularAreaDoQuadrado(BigDecimal ladoA, BigDecimal ladoB) throws Exception;
+	public abstract BigDecimal calcularAreaDoTriangulo(BigDecimal base, BigDecimal altura) throws Exception;
 }
