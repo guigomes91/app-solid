@@ -51,6 +51,20 @@ Assumimos que a aplicação só realiza operação matemática simples como soma
 Corrigimos a violação do LSP no commit [Ajuste LSP](https://github.com/guigomes91/app-solid/commit/6aca9ea441a608f8d90aece1b11dcd19a3b1504a), agora vejamos que extendemos para uma classe que é responsável por realizar cálculos mais complexos, onde podemos aumentar os métodos para outros tipos de cálculos, separando também a responsabilidades das classes.
 No commit [Removido extensão de CalculadoraDTO](https://github.com/guigomes91/app-solid/commit/5fee06d20350a8a42fa6dbf27119989b5be407d2) foi removido a extensão que violava o LSP.
 
+Classe **OperacaoMatematicaGeometrica**
+
+```
+@Service
+public class OperacaoMatematicaGeometrica extends OperacaoGeometrica {
+	
+	@Override
+	public BigDecimal calcularAreaDoQuadrado(BigDecimal ladoA, BigDecimal ladoB) throws Exception {
+		return ladoA.multiply(ladoB);
+	}
+
+}
+```
+
 ![I](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/I_BG.png)SP
 
 ![D](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/O_BG.png)IP
