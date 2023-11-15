@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CalculadoraDTO {
+public class CalculadoraDTO extends OperacaoGeometrica {
 
 	private String tipoCalculo;
 	private BigDecimal x;
@@ -22,5 +22,10 @@ public class CalculadoraDTO {
 		this.tipoCalculo = tipoCalculo;
 		this.x = x;
 		this.y = y;
+	}
+
+	@Override
+	public void calcularAreaDoQuadrado(BigDecimal ladoA, BigDecimal ladoB) throws Exception {
+		throw new Exception("Method not allow");
 	}
 }

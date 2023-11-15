@@ -40,4 +40,13 @@ public class OperacaoMatematicaServiceImpl implements OperacaoMatematicaService 
 			repository.save(calcEntity);
 		});
 	}
+
+	@Override
+	public void logarOperacoes() {
+		operacoes.forEach(op -> {
+			log.info("Tipo de operações realizadas -> {}", op.toString());
+		});	
+	}
+	
+	
 }

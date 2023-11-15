@@ -16,7 +16,6 @@ public class DivisaoComponent implements Operacao {
 
 	@Override
 	public BigDecimal realizarCalculo(CalculadoraDTO cal) {
-		log.info("## Calculo de divisão ##");
 		cal.setTipoCalculo("DIVISAO");
 		
 		try {
@@ -31,6 +30,11 @@ public class DivisaoComponent implements Operacao {
 		}
 
 		return BigDecimal.ZERO;
+	}
+	
+	@Override
+	public String toString() {
+		return "Operação de divisão";
 	}
 
 }

@@ -19,6 +19,7 @@ public class OperacaoMathConfig implements CommandLineRunner {
 		 * utilizando Spring (@Primary e @Qualifier)
 		 */
 		runOperacao.executarOperacaoMatematica();
+		runOperacao.logarOperacoes();
 	}
 
 }
