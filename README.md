@@ -75,4 +75,4 @@ public class OperacaoMatematicaGeometrica extends OperacaoGeometrica {
 
 ![I](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/I_BG.png)SP
 
-![D](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/O_BG.png)IP
+![D](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/D_BG.png)IP
