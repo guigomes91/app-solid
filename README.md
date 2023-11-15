@@ -46,7 +46,7 @@ abstração (Ioc).
 Desta forma, eu pude aplicar o conceito de classes que estão fechadas para modificação porém abertas para extensão. Também pode-se perceber que um strategy é aplicado
 como design pattern. Agora se eu quero calcular uma multiplicação, basta eu criar uma nova classe e implementar a interface.
 
-![L](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/O_BG.png) 
+![L](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/L_BG.png) 
 ## LSP
 
 Assumimos que a aplicação só realiza operação matemática simples como soma, subtração, divisão e multiplicação. No commit [Violação do LSP](https://github.com/guigomes91/app-solid/commit/ca09858bfcdd9577eeae97dd9e9ded220d835bd0) a classe **CalculadoraDTO** extende de 
