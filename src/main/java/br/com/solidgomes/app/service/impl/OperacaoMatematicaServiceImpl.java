@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.solidgomes.app.component.DivisaoComponent;
 import br.com.solidgomes.app.dto.CalculadoraDTO;
 import br.com.solidgomes.app.model.CalculadoraEntity;
 import br.com.solidgomes.app.repository.CalculadoraRepository;
@@ -28,21 +29,19 @@ public class OperacaoMatematicaServiceImpl implements OperacaoMatematicaService 
 	private CalculadoraRepository repository;
 	
 	@Override
-	public void executarOperacaoMatematica() {
+	public void executarOperacaoMatematica(DivisaoComponent divisaoComponent) {
 		CalculadoraDTO calc = new CalculadoraDTO("", new BigDecimal(10), new BigDecimal(2));
 		
-		operacoes.forEach(operacao -> {
-			BigDecimal retorno = operacao.realizarCalculo(calc);
-			log.info("Valor calculado: {}", retorno);
-			
-			CalculadoraEntity calcEntity = new CalculadoraEntity();
-			calcEntity.setResultado(retorno);
-			calcEntity.setTipoCalculo(calc.getTipoCalculo());
-			calcEntity.setX(calc.getX());
-			calcEntity.setY(calc.getY());
-			
-			repository.save(calcEntity);
-		});
+		BigDecimal retorno = divisaoComponent.realizarCalculo(calc);
+		log.info("Valor calculado: {}", retorno);
+		
+		CalculadoraEntity calcEntity = new CalculadoraEntity();
+		calcEntity.setResultado(retorno);
+		calcEntity.setTipoCalculo(calc.getTipoCalculo());
+		calcEntity.setX(calc.getX());
+		calcEntity.setY(calc.getY());
+		
+		repository.save(calcEntity);
 		
 		try {
 			BigDecimal base = BigDecimal.valueOf(15);
