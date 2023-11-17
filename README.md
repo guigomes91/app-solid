@@ -123,4 +123,5 @@ Acoplamento entre interfaces ao invés de classe concreta, é fácil de crescer 
 
 No commit [Violando DIP](https://github.com/guigomes91/app-solid/commit/aaf22270e2b918872d06f3287c780580bac74965) eu passei uma classe concreta para o método **executarOperacaoMatematica**, repare como a classe **OperacaoMatematicaServiceImpl** fica totalmente 
 acoplada ao componente **DivisaoComponent**. Ficando completamente dificil de extender essa classe, impossibilitando o reuso, desacoplamento e aumentar para novas funcionalidades.
-
+Agora corrigimos a implementação anterior no commit [DIP](https://github.com/guigomes91/app-solid/commit/6653c611b5d17863090bff5f182a297cb804430f), onde passamos a abstração ao invés da implementação concreta, dessa forma ficando desacoplada e aberta para receber novas
+funcionalidades. Agora posso passar uma lista de abstração **OperacaoMatematicaComum**, qualquer nova implementação adicionada na lista, o cálculo ira funcionar normalmente.
