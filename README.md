@@ -125,3 +125,35 @@ No commit [Violando DIP](https://github.com/guigomes91/app-solid/commit/aaf22270
 acoplada ao componente **DivisaoComponent**. Ficando completamente dificil de extender essa classe, impossibilitando o reuso, desacoplamento e aumentar para novas funcionalidades.
 Agora corrigimos a implementação anterior no commit [DIP](https://github.com/guigomes91/app-solid/commit/6653c611b5d17863090bff5f182a297cb804430f), onde passamos a abstração ao invés da implementação concreta, dessa forma ficando desacoplada e aberta para receber novas
 funcionalidades. Agora posso passar uma lista de abstração **OperacaoMatematicaComum**, qualquer nova implementação adicionada na lista, o cálculo ira funcionar normalmente.
+
+```
+@Override
+	public void executarOperacaoMatematica(List<OperacaoMatematicaComum> operacoes) {
+		CalculadoraDTO calc = new CalculadoraDTO("", new BigDecimal(10), new BigDecimal(2));
+		
+		operacoes.forEach(operacao -> {
+			BigDecimal retorno = operacao.realizarCalculo(calc);
+			log.info("Valor calculado: {}", retorno);
+			
+			CalculadoraEntity calcEntity = new CalculadoraEntity();
+			calcEntity.setResultado(retorno);
+			calcEntity.setTipoCalculo(calc.getTipoCalculo());
+			calcEntity.setX(calc.getX());
+			calcEntity.setY(calc.getY());
+			
+			repository.save(calcEntity);
+		});
+		
+		try {
+			BigDecimal base = BigDecimal.valueOf(15);
+			BigDecimal altura = BigDecimal.valueOf(6);
+			BigDecimal areaDoTriangulo = operacaoGeometrica.calcularAreaDoTriangulo(base, altura);
+			BigDecimal areaDoQuadrado = operacaoGeometrica.calcularAreaDoQuadrado(base, altura);
+			
+			log.info("Area do triangulo {} com base {} e altura {}", areaDoTriangulo, base, altura);
+			log.info("Area do quadrado {} com lado A {} e lado B {}", areaDoQuadrado, base, altura);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+```
