@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.solidgomes.app.component.DivisaoComponent;
 import br.com.solidgomes.app.dto.CalculadoraDTO;
 import br.com.solidgomes.app.model.CalculadoraEntity;
 import br.com.solidgomes.app.repository.CalculadoraRepository;
@@ -18,9 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class OperacaoMatematicaServiceImpl implements OperacaoMatematicaService {
-
-	@Autowired
-	private List<OperacaoMatematicaComum> operacoes;
 	
 	@Autowired
 	private OperacaoMatematicaGeometrica operacaoGeometrica;
@@ -29,19 +25,21 @@ public class OperacaoMatematicaServiceImpl implements OperacaoMatematicaService 
 	private CalculadoraRepository repository;
 	
 	@Override
-	public void executarOperacaoMatematica(DivisaoComponent divisaoComponent) {
+	public void executarOperacaoMatematica(List<OperacaoMatematicaComum> operacoes) {
 		CalculadoraDTO calc = new CalculadoraDTO("", new BigDecimal(10), new BigDecimal(2));
 		
-		BigDecimal retorno = divisaoComponent.realizarCalculo(calc);
-		log.info("Valor calculado: {}", retorno);
-		
-		CalculadoraEntity calcEntity = new CalculadoraEntity();
-		calcEntity.setResultado(retorno);
-		calcEntity.setTipoCalculo(calc.getTipoCalculo());
-		calcEntity.setX(calc.getX());
-		calcEntity.setY(calc.getY());
-		
-		repository.save(calcEntity);
+		operacoes.forEach(operacao -> {
+			BigDecimal retorno = operacao.realizarCalculo(calc);
+			log.info("Valor calculado: {}", retorno);
+			
+			CalculadoraEntity calcEntity = new CalculadoraEntity();
+			calcEntity.setResultado(retorno);
+			calcEntity.setTipoCalculo(calc.getTipoCalculo());
+			calcEntity.setX(calc.getX());
+			calcEntity.setY(calc.getY());
+			
+			repository.save(calcEntity);
+		});
 		
 		try {
 			BigDecimal base = BigDecimal.valueOf(15);
@@ -57,7 +55,7 @@ public class OperacaoMatematicaServiceImpl implements OperacaoMatematicaService 
 	}
 
 	@Override
-	public void logarOperacoes() {
+	public void logarOperacoes(List<OperacaoMatematicaComum> operacoes) {
 		operacoes.forEach(op -> {
 			log.info("Tipo de operações realizadas -> {}", op.toString());
 		});	

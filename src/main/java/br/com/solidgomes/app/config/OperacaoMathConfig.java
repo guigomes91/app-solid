@@ -1,10 +1,12 @@
 package br.com.solidgomes.app.config;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
-import br.com.solidgomes.app.component.DivisaoComponent;
+import br.com.solidgomes.app.service.OperacaoMatematicaComum;
 import br.com.solidgomes.app.service.OperacaoMatematicaService;
 
 @Configuration
@@ -14,7 +16,7 @@ public class OperacaoMathConfig implements CommandLineRunner {
 	private OperacaoMatematicaService runOperacao;
 	
 	@Autowired
-	private DivisaoComponent divisaoComponent;
+	private List<OperacaoMatematicaComum> operacoes;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -23,8 +25,8 @@ public class OperacaoMathConfig implements CommandLineRunner {
 		 * utilizando Spring (@Primary e @Qualifier)
 		 */
 		
-		runOperacao.executarOperacaoMatematica(divisaoComponent);
-		runOperacao.logarOperacoes();
+		runOperacao.executarOperacaoMatematica(operacoes);
+		runOperacao.logarOperacoes(operacoes);
 		runOperacao.calcularTaboada(2);
 	}
 

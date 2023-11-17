@@ -1,10 +1,10 @@
 package br.com.solidgomes.app.service;
 
-import br.com.solidgomes.app.component.DivisaoComponent;
+import java.util.List;
 
 public interface OperacaoMatematicaService {
 
-	void executarOperacaoMatematica(DivisaoComponent divisaoComponent);
-	void logarOperacoes();
+	void executarOperacaoMatematica(List<OperacaoMatematicaComum> operacoes);
+	void logarOperacoes(List<OperacaoMatematicaComum> operacoes);
 	void calcularTaboada(int numero);
 }
