@@ -118,3 +118,9 @@ interface **OperacaoMatematicaService**, visto que a classe **OperacaoMatematica
 Mas agora começamos a ter um novo problema, essa classe tende a crescer se existerem novos tipos de cálculos matemáticos, então ela é forte candidata a ser refatorada novamente.
 
 ![D](https://github.com/guigomes91/app-solid/blob/master/src/main/resources/static/assets/D_BG.png)IP
+
+Acoplamento entre interfaces ao invés de classe concreta, é fácil de crescer o código e dar manutenção. 
+
+No commit [Violando DIP](https://github.com/guigomes91/app-solid/commit/aaf22270e2b918872d06f3287c780580bac74965) eu passei uma classe concreta para o método **executarOperacaoMatematica**, repare como a classe **OperacaoMatematicaServiceImpl** fica totalmente 
+acoplada ao componente **DivisaoComponent**. Ficando completamente dificil de extender essa classe, impossibilitando o reuso, desacoplamento e aumentar para novas funcionalidades.
+
